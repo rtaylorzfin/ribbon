@@ -11,4 +11,4 @@ import GeneOntologyRibbon from "../../src/zfin/containers/GeneOntologyRibbon";
 // link the history used in our app to url-query so it can update the URL with it.
 configureUrlQuery({ history });
 
-ReactDOM.render(<GeneOntologyRibbon geneId={"ZFIN:ZDB-GENE-010320-2"} />, document.getElementById('demo'));
+ReactDOM.render(<GeneOntologyRibbon geneId={"ZDB-GENE-010320-2"} />, document.getElementById('demo'));

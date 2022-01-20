@@ -17,8 +17,8 @@ import PublicationCitationLink from '../components/PublicationCitationLink';
 const GeneOntologyRibbon = ({geneId}) => {
     const [tableState, setTableState] = useTableState();
     const [selected, setSelected] = useRibbonState();
-
-    const data = useFetch(`/action/api/marker/${geneId}/go/ribbon-summary`);
+    const dataSourceBase = "https://cell-mac.zfin.org:8080";
+    const data = useFetch(`${dataSourceBase}/action/api/marker/${geneId}/go/ribbon-summary`);
 
     if (data.rejected) {
         return <GenericErrorMessage />;
@@ -100,7 +100,7 @@ const GeneOntologyRibbon = ({geneId}) => {
 
             {selected &&
                 <DataTable
-                    dataUrl={`/action/api/marker/${geneId}/go?${qs.stringify(tableQuery)}`}
+                    dataUrl={`https://cell-mac.zfin.org:8080/action/api/marker/${geneId}/go?${qs.stringify(tableQuery)}`}
                     columns={columns}
                     rowKey='rowKey'
                     tableState={tableState}
