@@ -1,5 +1,7 @@
 // these methods encapsulate calls to the jquery ajax method in case we
 // want to change which library we use to do http requests
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
 
 export default {
     get: (url, data) => {
