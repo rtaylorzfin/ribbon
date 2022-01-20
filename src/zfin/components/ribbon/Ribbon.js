@@ -16,7 +16,11 @@ const Ribbon = (props) => {
                 .replace(/^0 term, 0 annotation$/, 'No annotations');
             item.setAttribute('title', title);
         })
-    }, [props.subjects])
+    }, [props.subjects]);
+    console.log("rendering ribbon");
+    console.log(
+        props
+    );
     return (
         <div className='ontology-ribbon-container horizontal-scroll-container' ref={ribbonRef}>
             <GenericRibbon
