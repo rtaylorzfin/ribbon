@@ -63,9 +63,9 @@ class FigureGalleryModal extends Component {
                                 {image && (
                                     <h4 className='modal-title'>
                                         <a href={`/${image.figure.zdbID}`}>{image.figure.label}</a> {image.figure.publication && (
-                                            <>
+                                            <React.Fragment>
                                                 from <PublicationCitationLink publication={image.figure.publication} />
-                                            </>)}
+                                            </React.Fragment>)}
                                     </h4>
                                 )}
                                 <div className='figure-gallery-modal-details'>

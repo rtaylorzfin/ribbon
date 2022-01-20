@@ -65,7 +65,7 @@ const GeneExpressionAnnotationSummaryTable = (
     return (
         <div>
             <DataTable
-                dataUrl={`/action/api/marker/${geneId}/expression/ribbon-detail?${qs.stringify(query)}`}
+                dataUrl={`https://cell-mac.zfin.org:8080/action/api/marker/${geneId}/expression/ribbon-detail?${qs.stringify(query)}`}
                 columns={columns}
                 rowKey={row => row.entity.superterm.oboID + (row.entity.subterm && ',' + row.entity.subterm.oboID)}
                 tableState={tableState}

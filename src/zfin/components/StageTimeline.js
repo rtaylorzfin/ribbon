@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {TICK_LABELS} from './StageTimelineHeader';
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
 
 const formatHours = (hours) => {
     if (hours < 168) {
@@ -33,11 +35,11 @@ const StageTimeline = ({allStages, highlightedStages}) => {
     }
 
     const handleRef = useCallback(ref => {
-        $(ref).tipsy({
-            gravity: 'n',
-            html: true,
-            className: 'stage-timeline-tooltip',
-        });
+        // $(ref).tipsy({
+        //     gravity: 'n',
+        //     html: true,
+        //     className: 'stage-timeline-tooltip',
+        // });
     }, []);
 
     return (

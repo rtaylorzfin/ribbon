@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 const StageRange = ({start, end}) => {
     const startIsEnd = start.zdbID === end.zdbID;
     return (
-        <>
+        <React.Fragment>
             <StageLink stage={start} />
             {!startIsEnd && ' to '}
             {!startIsEnd && <StageLink stage={end} />}
-        </>
+        </React.Fragment>
     );
 }
 

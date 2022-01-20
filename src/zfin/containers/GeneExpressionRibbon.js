@@ -21,7 +21,7 @@ const GeneExpressionRibbon = ({geneId}) => {
     const [includeReporter, setIncludeReporter] = useState(false);
     const [onlyInSitu, setOnlyInSitu] = useState(false);
 
-    const baseUrl = `/action/api/marker/${geneId}/expression/ribbon-summary`;
+    const baseUrl = `https://cell-mac.zfin.org:8080/action/api/marker/${geneId}/expression/ribbon-summary`;
     const params = {};
     if (includeReporter) {
         params.includeReporter = true;
@@ -102,6 +102,7 @@ const GeneExpressionRibbon = ({geneId}) => {
             {selectedTermName && <h5>{headerText} </h5>}
 
             {(selectedRibbonTerm || selectedTableEntity) &&
+                <div id='gene-expesh'>
                 <GeneExpressionFigureGallery
                     geneId={geneId}
                     includeReporters={includeReporter}
@@ -109,6 +110,8 @@ const GeneExpressionRibbon = ({geneId}) => {
                     selectedRibbonTerm={selectedRibbonTerm}
                     selectedTableEntity={selectedTableEntity}
                 />
+                    <h3>figure gallery</h3>
+                </div>
             }
 
             {selectedRibbonTerm && !selectedTableEntity &&

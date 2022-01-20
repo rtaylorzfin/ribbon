@@ -20,7 +20,7 @@ const GeneExpressionFigureGallery = (
     const [page, setPage] = useState(1);
     const [selectedImage, setSelectedImage] = useState(null);
 
-    const baseUrl = `/action/api/marker/${geneId}/expression/images`;
+    const baseUrl = `https://cell-mac.zfin.org:8080/action/api/marker/${geneId}/expression/images`;
     const params = { };
     if (includeReporters) {
         params.includeReporters = includeReporters;
