@@ -16,7 +16,7 @@ const InputCheckbox = React.forwardRef((props, ref) => {
     }
 
     return (
-        <>
+        <React.Fragment>
             <input
                 {...getInputProps({ ref, ...rest })}
                 checked={value}
@@ -25,7 +25,7 @@ const InputCheckbox = React.forwardRef((props, ref) => {
                 type='checkbox'
             />
             {invalid && <div className='text-danger small'>{error}</div>}
-        </>
+        </React.Fragment>
     );
 });
 

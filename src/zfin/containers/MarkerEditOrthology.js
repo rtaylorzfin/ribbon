@@ -6,7 +6,7 @@ import EditOrthologyNote from '../components/marker-edit/EditOrthologyNote';
 
 const MarkerEditOrthology = ({ defaultPubId, markerId }) => {
     return (
-        <>
+        <React.Fragment>
             <Section>
                 <EditOrthologyTable markerId={markerId} defaultPubId={defaultPubId} />
             </Section>
@@ -14,7 +14,7 @@ const MarkerEditOrthology = ({ defaultPubId, markerId }) => {
             <Section title='Orthology Note'>
                 <EditOrthologyNote markerId={markerId} />
             </Section>
-        </>
+        </React.Fragment>
     );
 };
 

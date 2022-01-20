@@ -25,18 +25,18 @@ const MarkerExternalNotes = ({markerId, notes, setNotes, type}) => {
 
     const formatListItem = (note, editLink) => {
         return (
-            <>
+            <React.Fragment>
                 <div className='mt-2'>
                     <a href={`/${note.publicationZdbID}`} className='mr-1'>{note.publicationZdbID}</a>
                     {editLink}
                 </div>
                 <div className='keep-breaks'>{note.noteData}</div>
-            </>
+            </React.Fragment>
         );
     };
 
     return (
-        <>
+        <React.Fragment>
             <AddEditList
                 setModalItem={setModalNote}
                 newItem={{ noteData: '' }}
@@ -46,7 +46,7 @@ const MarkerExternalNotes = ({markerId, notes, setNotes, type}) => {
             />
 
             <AddEditDeleteModal {...modalProps} header='External Note'>
-                {values && <>
+                {values && <React.Fragment>
                     <FormGroup
                         inputClassName='col-md-10'
                         tag={PublicationInput}
@@ -65,9 +65,9 @@ const MarkerExternalNotes = ({markerId, notes, setNotes, type}) => {
                         field='noteData'
                         validate={value => value.trim() ? false : 'Note cannot be blank'}
                     />
-                </>}
+                </React.Fragment>}
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     );
 };
 

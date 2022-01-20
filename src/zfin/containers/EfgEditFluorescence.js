@@ -39,13 +39,13 @@ const MarkerEditSequences = ({markerId, group = 'marker linked sequence', groupD
 
     const formatLink = (link, editLink) => {
         return (
-            <>
+            <React.Fragment>
                 <a href={link.link}>
                     {link.referenceDatabaseName}:{link.accession}
                 </a>
-                {link.length && <> &ndash; {link.length} nt/aa</>}
-                {link.references && link.references.length && <> ({link.references.length})</>} {editLink}
-            </>
+                {link.length && <React.Fragment> &ndash; {link.length} nt/aa</React.Fragment>}
+                {link.references && link.references.length && <React.Fragment> ({link.references.length})</React.Fragment>} {editLink}
+            </React.Fragment>
         );
     };
 
@@ -58,7 +58,7 @@ const MarkerEditSequences = ({markerId, group = 'marker linked sequence', groupD
     }
 
     return (
-        <>
+        <React.Fragment>
             <AddEditList
                 formatItem={formatLink}
                 itemKeyProp='dblinkZdbID'
@@ -73,7 +73,7 @@ const MarkerEditSequences = ({markerId, group = 'marker linked sequence', groupD
             />
 
             <AddEditDeleteModal {...modalProps} header='Sequence'>
-                {values && <>
+                {values && <React.Fragment>
                     {!isEdit &&
                     <FormGroup
                         inputClassName='col-md-10'
@@ -159,9 +159,9 @@ const MarkerEditSequences = ({markerId, group = 'marker linked sequence', groupD
                             </button>
                         </div>
                     </div>
-                </>}
+                </React.Fragment>}
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     );
 };
 

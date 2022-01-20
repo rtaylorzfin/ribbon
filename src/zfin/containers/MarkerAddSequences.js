@@ -45,13 +45,13 @@ const MarkerAddSequences = ({markerId, type, group = 'gene edit addable nucleoti
     });
     const formatLink = (link, editLink) => {
         return (
-            <>
+            <React.Fragment>
                 <a href={link.link}>
                     {link.referenceDatabaseName}:{link.accession}
                 </a>
                 {' '}
-                {link.references && link.references.length && <>({link.references.length})</>} {editLink}
-            </>
+                {link.references && link.references.length && <React.Fragment>({link.references.length})</React.Fragment>} {editLink}
+            </React.Fragment>
         );
     }
 
@@ -64,7 +64,7 @@ const MarkerAddSequences = ({markerId, type, group = 'gene edit addable nucleoti
     }
 
     return (
-        <>
+        <React.Fragment>
 
             <AddEditList
                 title={hdr}
@@ -82,7 +82,7 @@ const MarkerAddSequences = ({markerId, type, group = 'gene edit addable nucleoti
 
             <AddEditDeleteModal {...modalProps} header={hdr}>
 
-                {values && <>
+                {values && <React.Fragment>
                     {!isEdit &&
                     <FormGroup
                         inputClassName='col-md-10'
@@ -169,9 +169,9 @@ const MarkerAddSequences = ({markerId, type, group = 'gene edit addable nucleoti
                         </div>
                     </div>
 
-                </>}
+                </React.Fragment>}
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     );
 };
 

@@ -5,7 +5,7 @@ const SingularPlural = ({singular, plural, value}) => {
         return <span>{value} {singular}</span>;
     } else {
         {
-            return <>{value} {plural}</>
+            return <React.Fragment>{value} {plural}</React.Fragment>
         }
     }
 

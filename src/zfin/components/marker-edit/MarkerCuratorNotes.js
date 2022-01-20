@@ -25,19 +25,19 @@ const MarkerCuratorNotes = ({currentUserId, markerId, notes, setNotes}) => {
     const formatListItem = (note, editLink) => {
         const noteDate = new Date(note.date);
         return (
-            <>
+            <React.Fragment>
                 <div className='mt-2'>
                     <b className='mr-1'>{note.curator.firstName} {note.curator.lastName}</b>
                     {noteDate.toLocaleString()}
                     {note.curator.zdbID === currentUserId && editLink}
                 </div>
                 <div className='keep-breaks'>{note.noteData}</div>
-            </>
+            </React.Fragment>
         )
     }
 
     return (
-        <>
+        <React.Fragment>
             <AddEditList
                 setModalItem={setModalNote}
                 newItem={{ noteData: '' }}
@@ -58,7 +58,7 @@ const MarkerCuratorNotes = ({currentUserId, markerId, notes, setNotes}) => {
                     </div>
                 )}
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     );
 };
 

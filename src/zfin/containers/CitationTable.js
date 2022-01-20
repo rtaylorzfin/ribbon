@@ -7,9 +7,9 @@ import Checkbox from '../components/Checkbox';
 const CitationTable = ({markerId}) => {
     const [includeUnpublished, setIncludeUnpublished] = useState(false);
 
-    const rowFormat = ({citation, zdbID, indexedOpenStatus}) => <>
+    const rowFormat = ({citation, zdbID, indexedOpenStatus}) => <React.Fragment>
         <a href={'/' + zdbID} dangerouslySetInnerHTML={{__html: citation}}/> {indexedOpenStatus}
-    </>;
+    </React.Fragment>;
 
     const sortOptions = [
         {
@@ -42,7 +42,7 @@ const CitationTable = ({markerId}) => {
     ];
 
     return (
-        <>
+        <React.Fragment>
             <div className='mb-2'>
                 <Checkbox
                     checked={includeUnpublished}
@@ -60,7 +60,7 @@ const CitationTable = ({markerId}) => {
                 rowKey={row => row.zdbID}
                 sortOptions={sortOptions}
             />
-        </>
+        </React.Fragment>
     );
 };
 

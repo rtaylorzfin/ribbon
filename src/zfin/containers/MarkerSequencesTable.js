@@ -60,7 +60,7 @@ const MarkerSequencesTable = ({markerId, showSummary}) => {
     }
 
     return (
-        <>
+        <React.Fragment>
             {showSummary && hasData && (
                 <DataTableSummaryToggle detailLabel='All Sequences' showPopup={summary} onChange={setSummary} />
             )}
@@ -71,7 +71,7 @@ const MarkerSequencesTable = ({markerId, showSummary}) => {
                 pagination={!summary}
                 rowKey={row => row.zdbID}
             />
-        </>
+        </React.Fragment>
     );
 };
 

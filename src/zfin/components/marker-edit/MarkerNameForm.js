@@ -79,7 +79,7 @@ const MarkerNameForm = ({
             }
 
             {!isPristine && showReasonFields &&
-            <>
+            <React.Fragment>
                 <FormGroup
                     label='Reason'
                     tag='select'
@@ -97,7 +97,7 @@ const MarkerNameForm = ({
                     id='inputComments'
                     rows='3'
                 />
-            </>
+            </React.Fragment>
             }
 
             <div className='form-group row'>

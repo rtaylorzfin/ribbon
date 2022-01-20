@@ -39,13 +39,13 @@ const MarkerEditDbLinks = ({markerId, group = 'other marker pages'}) => {
 
     const formatLink = (link, editLink) => {
         return (
-            <>
+            <React.Fragment>
                 <a href={link.link}>
                     {link.referenceDatabaseName}:{link.accession}
                 </a>
                 {' '}
-                {link.references && link.references.length && <>({link.references.length})</>} {editLink}
-            </>
+                {link.references && link.references.length && <React.Fragment>({link.references.length})</React.Fragment>} {editLink}
+            </React.Fragment>
         );
     }
 
@@ -58,7 +58,7 @@ const MarkerEditDbLinks = ({markerId, group = 'other marker pages'}) => {
     }
 
     return (
-        <>
+        <React.Fragment>
             <AddEditList
                 formatItem={formatLink}
                 itemKeyProp='dblinkZdbID'
@@ -72,7 +72,7 @@ const MarkerEditDbLinks = ({markerId, group = 'other marker pages'}) => {
             />
 
             <AddEditDeleteModal {...modalProps} header='Genome Resource'>
-                {values && <>
+                {values && <React.Fragment>
                     <FormGroup
                         inputClassName='col-md-10'
                         label='Database'
@@ -132,9 +132,9 @@ const MarkerEditDbLinks = ({markerId, group = 'other marker pages'}) => {
                             </button>
                         </div>
                     </div>
-                </>}
+                </React.Fragment>}
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     );
 };
 
