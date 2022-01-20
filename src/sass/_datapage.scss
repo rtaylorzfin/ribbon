@@ -2,11 +2,12 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+
 //@import "~@geneontology/ribbon/lib/main";
 
 $single-line-height: $line-height-base * $font-size-base;
 
-body.data-page {
+.body.data-page {
   background: $grey-light !important;
   position: relative;
 
