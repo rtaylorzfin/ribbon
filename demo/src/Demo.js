@@ -9,6 +9,7 @@ import '../../src/main.scss'
 import Ribbon, { RibbonDataProvider } from '../../src/index';
 import history from './history';
 import { POSITION, COLOR_BY } from '../../src/enums';
+import GeneExpressionRibbon from "../../src/zfin/containers/GeneExpressionRibbon";
 
 /**
  * Specify how the URL gets decoded here. This is an object that takes the prop
@@ -55,40 +56,9 @@ class Demo extends React.Component {
     // console.log("label position: ", entityLabel);
     return (
       <div id='demo'>
-        <RibbonDataProvider mode={mode} subject={subject}>
-          {
-            ({entities, config, dataError, dataReceived}) => (
-              <div>
-                {
-                  dataReceived ?
-                    <Ribbon
-                      entities={entities}
-                      config={config}
-                      showing={true}
-                      entityLabel={entityLabel}
-                      colorBy={colorBy}
-                      binaryColor={binaryColor}
-                      oddEvenColor
-                  /> :
-                    null
-                }
-                {dataError ? dataError : null}
-                {
-                  (!dataReceived && !dataError) ?
-                    <GridLoader
-                      align='middle'
-                      className='spinner'
-                      color='#699'
-                      loading={true}
-                      margin={2}
-                      size={8}
-                    /> :
-                    null
-                }
-              </div>
-            )
-          }
-        </RibbonDataProvider>
+          <div className="body data-page">
+              <GeneExpressionRibbon geneId={"ZDB-GENE-990415-8"} />
+          </div>
       </div>
     );
   }
