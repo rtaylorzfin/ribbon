@@ -19,7 +19,7 @@
     "umd"
   ],
   "dependencies": {
-    "@geneontology/wc-go-ribbon": "0.0.14",
+    "@geneontology/wc-go-ribbon": "0.0.15",
     "@geneontology/wc-ribbon-strips": "^0.0.37",
     "@geneontology/wc-ribbon-table": "^0.0.57",
     "amigo2-instance-data": "^2.5.12",
