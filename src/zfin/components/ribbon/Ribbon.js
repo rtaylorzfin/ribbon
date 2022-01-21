@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { applyPolyfills, defineCustomElements } from '@geneontology/wc-ribbon-strips/loader';
+import { applyPolyfills, defineCustomElements } from '@geneontology/wc-go-ribbon/loader';
 
 import style from './style.scss';
 
@@ -27,7 +27,7 @@ const Ribbon = (props) => {
     );
     return (
         <div className='ontology-ribbon-container horizontal-scroll-container' ref={ribbonRef}>
-            <wc-ribbon-strips
+            <wc-go-ribbon
                 hide-first-subject-label
                 color-by='1' // annotations
                 binary-color
