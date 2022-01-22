@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { applyPolyfills, defineCustomElements } from '@geneontology/wc-go-ribbon/loader';
+import { applyPolyfills, defineCustomElements } from '@geneontology/wc-ribbon-strips/loader';
 
 import style from './style.scss';
 
@@ -7,7 +7,8 @@ applyPolyfills().then(() => {
     defineCustomElements(window);
 });
 
-const Ribbon = (props) => {
+const Ribbon = ({subjects, categories, itemClick, selected}) => {
+    const props = {subjects, categories, selected};
     const ribbonRef = useRef(null);
     useEffect(() => {
         if (!ribbonRef.current) {
@@ -20,20 +21,16 @@ const Ribbon = (props) => {
                 .replace(/^0 term, 0 annotation$/, 'No annotations');
             item.setAttribute('title', title);
         })
-    }, [props.subjects]);
-    console.log("rendering ribbon");
-    console.log(
-        props
-    );
+    }, [subjects]);
     return (
         <div className='ontology-ribbon-container horizontal-scroll-container' ref={ribbonRef}>
-            <wc-go-ribbon
-                hide-first-subject-label
+            <wc-ribbon-strips
                 color-by='1' // annotations
                 binary-color
                 max-color={[style.primaryR, style.primaryG, style.primaryB]}
-                update-on-subject-change={false}
                 subject-position='0'
+                update-on-subject-change={false}
+                onCellClick={itemClick}
                 data={JSON.stringify(props)}
             />
             <small className='text-muted'>
