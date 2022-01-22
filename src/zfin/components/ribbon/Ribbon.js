@@ -10,6 +10,7 @@ applyPolyfills().then(() => {
 const Ribbon = ({subjects, categories, itemClick, selected}) => {
     const props = {subjects, categories, selected};
     const ribbonRef = useRef(null);
+    const ribbonStripsRef = useRef();
     useEffect(() => {
         if (!ribbonRef.current) {
             return;
@@ -20,8 +21,26 @@ const Ribbon = ({subjects, categories, itemClick, selected}) => {
                 .replace(/class(e?)/, 'term')
                 .replace(/^0 term, 0 annotation$/, 'No annotations');
             item.setAttribute('title', title);
-        })
+        });
     }, [subjects]);
+
+    useEffect(() => {
+        console.log('ribbonStripsRef.current', ribbonStripsRef.current);
+        ribbonStripsRef.current.addEventListener('cellClick', (event) => {
+            try {
+                console.log('itemClick', itemClick);
+
+                const subject = event.detail.subjects[0];
+                const group = event.detail.group;
+                if (subject && group) {
+                    itemClick(subject, group);
+                }
+            } catch (e) {
+                //in case event.detail.subjects[0] chaining fails.
+            }
+        });
+    },[]);
+
     return (
         <div className='ontology-ribbon-container horizontal-scroll-container' ref={ribbonRef}>
             <wc-ribbon-strips
@@ -30,7 +49,7 @@ const Ribbon = ({subjects, categories, itemClick, selected}) => {
                 max-color={[style.primaryR, style.primaryG, style.primaryB]}
                 subject-position='0'
                 update-on-subject-change={false}
-                onCellClick={itemClick}
+                ref={ribbonStripsRef}
                 data={JSON.stringify(props)}
             />
             <small className='text-muted'>
