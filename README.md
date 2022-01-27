@@ -1,58 +1,32 @@
-# ribbon (DEPRECATED)
-Short form matrix view of all GO annotations for a given gene
+# Ribbon Sandbox
 
-This REACT version of the ribbon has been deprecated. Users should now use or migrate to the Web Component version of the GO ribbon, richer in functionalities, and easier to install: 
+This repo was created to explore the path of upgrading from the
+go-ribbon to the newer wc-go-ribbon (web component-based).
 
-https://github.com/geneontology/wc-ribbon/tree/master/wc-go-ribbon
+I'm running the project in a docker container based on our
+development image:
 
-
-## Installation
-- Once node.js is on your machine then dependent packages need to be brought in. Running `npm install` in the components's root directory will install everything you need for development.
- - Note that you may need to run 'npm install' as sudo.
-
-### Deployment
 ```
-    npm install
-    npm run build 
+docker run --rm -it -p 3000:3000  -v `pwd`:/code zfinorg_compile bash -c 'cd /code && npm start'
 ```
-   
-## Demo Ribbon Server
 
-- `npm start` will run a local server with the ribbon's demo app at [http://localhost:3000](http://localhost:3000) with hot module reloading.
-- To actually see a populated 'ribbon' you will need to provide the resource name and the resource's gene identifier in the URL. That is:  [http://localhost:3000/?subject=MGI:MGI:97490](http://localhost:3000/?subject=MGI:MGI:97490) or [http://localhost:3000/?subject=ZFIN:ZDB-GENE-990415-173](http://localhost:3000/?subject=ZFIN:ZDB-GENE-990415-173)
+And I set up a proxy service to allow cross origin requests for
+loading the ribbon data from our backend.  Example running docker:
 
-## Integration
+```
+if [ ! -f ./key.pem ]; then
+  echo Creating key
+  openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout ./key.pem -out ./cert.pem -batch
+fi
 
+docker run --rm -it -p 8080:8080 --user root -v `pwd`:/code --entrypoint /bin/bash node:16-bullseye -c 'cd /code && npm i -g http-server && npx http-server --cors -S -P https://zfin.org -c-1 -C ./cert.pem -K ./key.pem'
+```
 
-Integration is demonstrated in the [demo package](https://github.com/geneontology/ribbon/blob/master/demo/src/index.js).
-
-
-
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    ... 
-    ReactDOM.render(<Demo/>, document.getElementById('demo'));
+(based on this technique: https://willschenk.com/articles/2020/simple_cors_workaround_for_local_development/)
 
 
-With the [Demo Component](https://github.com/geneontology/ribbon/blob/master/demo/src/Demo.js) instantiating all of the lower components. 
+### Current State
 
-If not running react directly (or not wanting to load it via npm), you can import the libraries directly :
-
-    <script src="https://unpkg.com/react@15.6.1/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@15.6.1/dist/react-dom.js"></script>
-
-Which will allow you to do as above. 
-
-## Examples
-- fly
-![img](docs/flyribbon.png)
-
-- zebrafish
-
-![img](docs/zfinribbon.png)
-
-- mouse
-![img](docs/mouseribbon.png)
-
-## Build the library
-`npm run build` will prepare the assets of the library for publishing to NPM.
+This is now serving up the new web-component version of go ribbon.
+The history of the repository shows the path from using the original ribbon
+to replacing it with the wc one.
