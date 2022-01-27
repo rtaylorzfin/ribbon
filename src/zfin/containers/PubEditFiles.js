@@ -36,7 +36,7 @@ const PubEditFiles = ({ pubId }) => {
     const pubHasOriginalArticle = value.results.some(file => file.type.name === 'Original Article');
 
     return (
-        <>
+        <React.Fragment>
             <table className='table table-hover'>
                 <thead>
                     <tr>
@@ -83,7 +83,7 @@ const PubEditFiles = ({ pubId }) => {
                 pubId={pubId}
                 task='ADD_PDF'
             />
-        </>
+        </React.Fragment>
     );
 };
 

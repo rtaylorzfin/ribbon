@@ -27,7 +27,7 @@ const MarkerEditNomenclature = ({ markerId, showAbbreviationField, showReasonFie
     } = useFetch(`/action/marker/${markerId}/aliases`, { defaultValue: [] });
 
     return (
-        <>
+        <React.Fragment>
             <Section>
                 <MarkerNameForm
                     markerId={markerId}
@@ -46,7 +46,7 @@ const MarkerEditNomenclature = ({ markerId, showAbbreviationField, showReasonFie
                     setAliases={setAliases}
                 />
             </Section>
-        </>
+        </React.Fragment>
     )
 };
 

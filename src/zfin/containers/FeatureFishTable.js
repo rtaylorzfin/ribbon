@@ -73,7 +73,7 @@ const FeatureFishTable = ({featureId}) => {
     const dataUrl = baseUrl + qs.stringify(params, {addQueryPrefix: true});
 
     return (
-        <>
+        <React.Fragment>
             <div className='mb-2'>
                 <Checkbox
                     checked={excludeFishWithSTR}
@@ -89,7 +89,7 @@ const FeatureFishTable = ({featureId}) => {
                 dataUrl={dataUrl}
                 rowKey={row => row.fish.zdbID}
             />
-        </>
+        </React.Fragment>
     )
 };
 

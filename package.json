@@ -19,6 +19,9 @@
     "umd"
   ],
   "dependencies": {
+    "@geneontology/wc-go-ribbon": "0.0.15",
+    "@geneontology/wc-ribbon-strips": "0.0.37",
+    "@geneontology/wc-ribbon-table": "^0.0.57",
     "amigo2-instance-data": "^2.5.12",
     "axios": "0.16.1",
     "bootstrap": "^5.1.3",
@@ -29,7 +32,8 @@
     "react": "16.12.0",
     "react-icons": "^2.2.7",
     "react-popper": "^1.0.2",
-    "react-transition-group": "^2.3.1"
+    "react-transition-group": "^2.3.1",
+    "use-http": "^1.0.26"
   },
   "peerDependencies": {
     "react": "16.12.0"

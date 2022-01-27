@@ -44,7 +44,7 @@ const MarkerEditNotes = ({ currentUserId, markerId, showExternalNotes = 'false' 
     }
 
     return (
-        <>
+        <React.Fragment>
             <Section title='Public Note'>
                 <MarkerPublicNoteForm markerId={markerId} note={publicNote} onSave={setPublicNote} />
             </Section>
@@ -66,7 +66,7 @@ const MarkerEditNotes = ({ currentUserId, markerId, showExternalNotes = 'false' 
                     />
                 </Section>
             }
-        </>
+        </React.Fragment>
     );
 };
 

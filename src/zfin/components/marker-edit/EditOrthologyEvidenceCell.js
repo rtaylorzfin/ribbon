@@ -106,11 +106,11 @@ const EditOrthologyEvidenceCell = ({defaultPubId, evidenceCodes, evidenceSet, or
 
     const formatItem = ({ publicationID, evidenceCodeList }, editLink) => {
         return (
-            <>
+            <React.Fragment>
                 <a href={'/' + publicationID}>
                     {publicationID === ORTHO_CURATION_PUB_ID ? ORTHO_CURATION_PUB_NAME : publicationID}
                 </a>: {evidenceCodeList.sort().join(', ')} {editLink}
-            </>
+            </React.Fragment>
         )
     }
 
@@ -136,7 +136,7 @@ const EditOrthologyEvidenceCell = ({defaultPubId, evidenceCodes, evidenceSet, or
     }
 
     return (
-        <>
+        <React.Fragment>
             <AddEditList
                 items={items}
                 itemKeyProp='publicationID'
@@ -150,7 +150,7 @@ const EditOrthologyEvidenceCell = ({defaultPubId, evidenceCodes, evidenceSet, or
             />
 
             <Modal open={modalEvidence !== null}>
-                {values && <>
+                {values && <React.Fragment>
                     <div className='popup-header'>Evidence for {ortholog.organism} {ortholog.abbreviation} ortholog</div>
                     <div className='popup-body show-overflow'>
                         <Form>
@@ -220,9 +220,9 @@ const EditOrthologyEvidenceCell = ({defaultPubId, evidenceCodes, evidenceSet, or
                             </div>
                         </Form>
                     </div>
-                </>}
+                </React.Fragment>}
             </Modal>
-        </>
+        </React.Fragment>
     );
 };
 

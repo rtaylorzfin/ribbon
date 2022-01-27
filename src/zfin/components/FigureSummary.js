@@ -17,7 +17,7 @@ const FigureSummary = ({statistics, allFiguresUrl}) => {
         <PublicationCitationLink publication={statistics.firstPublication} /> :
         `${statistics.numberOfPublications} publications`;
 
-    return <>{figureLink} {statistics.imgInFigure && <CameraIcon />} from {publicationDisplay}</>;
+    return <React.Fragment>{figureLink} {statistics.imgInFigure && <CameraIcon />} from {publicationDisplay}</React.Fragment>;
 };
 
 FigureSummary.propTypes = {

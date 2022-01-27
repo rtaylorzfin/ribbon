@@ -33,11 +33,11 @@ const MarkerAliases = ({markerId, aliases, setAliases}) => {
     });
 
     const formatAlias = (alias, editLink) => {
-        return <>{alias.alias} {alias.references.length > 0 && <>({alias.references.length})</>} {editLink}</>
+        return <React.Fragment>{alias.alias} {alias.references.length > 0 && <React.Fragment>({alias.references.length})</React.Fragment>} {editLink}</React.Fragment>
     }
 
     return (
-        <>
+        <React.Fragment>
             <AddEditList
                 formatItem={formatAlias}
                 items={aliases}
@@ -49,7 +49,7 @@ const MarkerAliases = ({markerId, aliases, setAliases}) => {
             />
 
             <AddEditDeleteModal {...modalProps} header='Previous Name'>
-                {values && <>
+                {values && <React.Fragment>
                     <FormGroup
                         inputClassName='col-md-10'
                         label='Name'
@@ -95,9 +95,9 @@ const MarkerAliases = ({markerId, aliases, setAliases}) => {
                             </button>
                         </div>
                     </div>
-                </>}
+                </React.Fragment>}
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     )
 };
 

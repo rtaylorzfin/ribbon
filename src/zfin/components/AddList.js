@@ -10,13 +10,13 @@ const AddList = ({ setModalItem, newItem,title}) => {
     };
 
     return (
-        <>
+        <React.Fragment>
 
 
 
 
             <button type='button' className='btn btn-link px-0' onClick={handleAddClick}>Add {title}</button>
-        </>
+        </React.Fragment>
     );
 };
 

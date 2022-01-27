@@ -13,7 +13,7 @@ const AddEditList = ({items, setModalItem, itemKeyProp = 'zdbID', newItem, forma
     };
 
     return (
-        <>
+        <React.Fragment>
             {items.length === 0 && <NoData placeholder='None' />}
 
             <ul className='list-unstyled'>
@@ -32,7 +32,7 @@ const AddEditList = ({items, setModalItem, itemKeyProp = 'zdbID', newItem, forma
             </ul>
 
             <button type='button' className='btn btn-link px-0' onClick={handleAddClick}>Add {title}</button>
-        </>
+        </React.Fragment>
     );
 };
 

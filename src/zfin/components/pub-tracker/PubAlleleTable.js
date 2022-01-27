@@ -24,8 +24,8 @@ const PubAlleleTable = ({pubId}) => {
         {
             label: 'Phenotype Data',
             content: row => (row.phenotypeFigures > 0 &&
-                <> <SingularPlural singular='figure' plural='figures' value={row.phenotypeFigures}/> from &nbsp;
-                    <SingularPlural singular='pub' plural='pubs' value={row.phenotypePublication}/></>
+                <React.Fragment> <SingularPlural singular='figure' plural='figures' value={row.phenotypeFigures}/> from &nbsp;
+                    <SingularPlural singular='pub' plural='pubs' value={row.phenotypePublication}/></React.Fragment>
             ),
             width: '100px',
         },

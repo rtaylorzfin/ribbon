@@ -49,7 +49,7 @@ const SequenceTargetingReagentSequenceFields = ({
     }, [values[reportedSequenceField], values[reversedField], values[complementedField]]);
 
     return (
-        <>
+        <React.Fragment>
             <div className='form-group row'>
                 <label htmlFor='reportedSequence1' className='col-md-2 col-form-label'>{reportedLabel}</label>
                 <div className='col-md-8'>
@@ -95,7 +95,7 @@ const SequenceTargetingReagentSequenceFields = ({
                 inputClassName='col-md-8'
                 disabled
             />
-        </>
+        </React.Fragment>
     );
 };
 

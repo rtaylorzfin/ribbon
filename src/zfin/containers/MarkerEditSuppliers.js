@@ -59,7 +59,7 @@ const MarkerEditSuppliers = ({ markerId }) => {
     }
 
     return (
-        <>
+        <React.Fragment>
             {suppliers.length === 0 && <NoData placeholder='None' />}
 
             <ul className='list-unstyled'>
@@ -93,7 +93,7 @@ const MarkerEditSuppliers = ({ markerId }) => {
                     />
                 }
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     );
 };
 

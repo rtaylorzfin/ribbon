@@ -140,7 +140,7 @@ const EditOrthologyTable = ({ defaultPubId, markerId }) => {
     }
 
     return (
-        <>
+        <React.Fragment>
             <form className='form-inline mb-3' noValidate>
                 <label className='mr-sm-2' htmlFor='markerEditOrthologyNCBIImport'>Import from NCBI</label>
                 <input
@@ -176,7 +176,7 @@ const EditOrthologyTable = ({ defaultPubId, markerId }) => {
             {genericError && <div className='error'>{genericError}</div> }
 
             <Modal open={deleteOrtholog !== null}>
-                {deleteOrtholog && <>
+                {deleteOrtholog && <React.Fragment>
                     <h4 className='mb-3'>
                         Delete {deleteOrtholog.orthologousGene.organism} {deleteOrtholog.orthologousGene.abbreviation} ortholog?
                     </h4>
@@ -191,9 +191,9 @@ const EditOrthologyTable = ({ defaultPubId, markerId }) => {
                             Delete
                         </LoadingButton>
                     </div>
-                </>}
+                </React.Fragment>}
             </Modal>
-        </>
+        </React.Fragment>
     );
 };
 

@@ -52,11 +52,11 @@ const MarkerEditMarkerRelationships = ({markerAbbreviation, markerId, relationsh
         const typeLabel = is1to2 ? markerRelationshipType.firstToSecondLabel : markerRelationshipType.secondToFirstLabel;
         const displayMarker = is1to2 ? secondMarker : firstMarker;
         return (
-            <>
+            <React.Fragment>
                 {stringToBool(showRelationshipType) && typeLabel} <EntityLink entity={displayMarker} />
-                {references.length > 0 && <> ({references.length})</>}
+                {references.length > 0 && <React.Fragment> ({references.length})</React.Fragment>}
                 {editLink}
-            </>
+            </React.Fragment>
         );
     };
 
@@ -120,7 +120,7 @@ const MarkerEditMarkerRelationships = ({markerAbbreviation, markerId, relationsh
     const inputClass = 'col-md-9';
 
     return (
-        <>
+        <React.Fragment>
             <AddEditList
                 items={relationships}
                 newItem={{
@@ -135,7 +135,7 @@ const MarkerEditMarkerRelationships = ({markerAbbreviation, markerId, relationsh
             />
 
             <AddEditDeleteModal {...modalProps} header='Marker Relationship'>
-                {values && <>
+                {values && <React.Fragment>
                     <FormGroup
                         inputClassName={inputClass}
                         labelClassName={labelClass}
@@ -215,9 +215,9 @@ const MarkerEditMarkerRelationships = ({markerAbbreviation, markerId, relationsh
                             </button>
                         </div>
                     </div>
-                </>}
+                </React.Fragment>}
             </AddEditDeleteModal>
-        </>
+        </React.Fragment>
     );
 };
 

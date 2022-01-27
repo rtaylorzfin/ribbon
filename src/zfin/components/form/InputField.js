@@ -20,10 +20,10 @@ const InputField = React.forwardRef((props, ref) => {
 
     // Build the field
     return (
-        <>
+        <React.Fragment>
             <Wrapper {...getInputProps({ ref, ...rest })} className={`form-control ${invalid ? 'is-invalid' : ''}`} />
             {invalid && <div className='text-danger small'>{error}</div>}
-        </>
+        </React.Fragment>
     );
 });
 
