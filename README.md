@@ -10,6 +10,8 @@ development image:
 docker run --rm -it -p 3000:3000  -v `pwd`:/code zfinorg_compile bash -c 'cd /code && npm start'
 ```
 
+The docker image is configured here: https://github.com/zfin/zfin/blob/main/docker/compile/Dockerfile
+
 And I set up a proxy service to allow cross origin requests for
 loading the ribbon data from our backend.  Example running docker:
 
@@ -24,6 +26,7 @@ docker run --rm -it -p 8080:8080 --user root -v `pwd`:/code --entrypoint /bin/ba
 
 (based on this technique: https://willschenk.com/articles/2020/simple_cors_workaround_for_local_development/)
 
+Chrome doesn't seem to allow me to accept the self-signed certificate, but I can proceed in firefox.
 
 ### Current State
 
